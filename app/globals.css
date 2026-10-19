@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* 색 · 글꼴은 이 토큰만 쓴다 — 클래스 이름: bg-surface · text-ink · border-line · text-muted · text-accent · text-grade-c … */
+@theme {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f9;
+  --color-line: #e3e6ea;
+  --color-ink: #1b1f24;
+  --color-muted: #5b6470;
+  --color-accent: #1f5fbf;
+  --color-warn: #b42318;
+  --color-grade-s: #1e7f4f;
+  --color-grade-a: #4d7c0f;
+  --color-grade-b: #a15c00;
+  --color-grade-c: #b42318;
+
+  --font-sans: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 숫자 · 금액 · %: 자리 맞춤 + 한 줄 */
+.num {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

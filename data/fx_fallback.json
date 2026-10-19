@@ -1,0 +1,58 @@
+{
+  "provider": "api.frankfurter.dev",
+  "endpoint": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=KRW,EUR,JPY,CNY",
+  "savedAt": "2026-10-17T22:16:18+09:00",
+  "note": "환율 API가 안 될 때 쓰는 저장본입니다. latest · 2026-09-30 은 API 응답 원문 그대로입니다(참고값).",
+  "latest": [
+    {
+      "date": "2026-10-17",
+      "base": "USD",
+      "quote": "CNY",
+      "rate": 6.6839
+    },
+    {
+      "date": "2026-10-17",
+      "base": "USD",
+      "quote": "EUR",
+      "rate": 0.89057
+    },
+    {
+      "date": "2026-10-17",
+      "base": "USD",
+      "quote": "JPY",
+      "rate": 158.08
+    },
+    {
+      "date": "2026-10-17",
+      "base": "USD",
+      "quote": "KRW",
+      "rate": 1339.49
+    }
+  ],
+  "2026-09-30": [
+    {
+      "date": "2026-09-30",
+      "base": "USD",
+      "quote": "CNY",
+      "rate": 6.7001
+    },
+    {
+      "date": "2026-09-30",
+      "base": "USD",
+      "quote": "EUR",
+      "rate": 0.88092
+    },
+    {
+      "date": "2026-09-30",
+      "base": "USD",
+      "quote": "JPY",
+      "rate": 157.23
+    },
+    {
+      "date": "2026-09-30",
+      "base": "USD",
+      "quote": "KRW",
+      "rate": 1354.68
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+// 표 설계 파일 — 5일차 실습 C에서 모델을 더한다.
+// 표를 바꾼 뒤에는 npm run db:push 로만 DB에 반영한다(migrate는 쓰지 않는다).
+// DB 주소는 이 파일이 아니라 prisma.config.ts · .env 에서 읽는다.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}

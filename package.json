@@ -1,0 +1,44 @@
+{
+  "name": "tradefin-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "postinstall": "prisma generate",
+    "doctor": "node scripts/doctor.mjs",
+    "doctor:db": "node scripts/doctor.mjs db",
+    "doctor:secrets": "node scripts/doctor.mjs secrets",
+    "env:init": "node scripts/env-init.mjs",
+    "db:push": "prisma db push && prisma generate && node scripts/doctor.mjs rls",
+    "db:seed": "prisma db seed",
+    "drafts": "tsx scripts/draft-dunning.ts",
+    "guide:update": "node scripts/update-guide.mjs",
+    "catchup": "node scripts/catchup.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@prisma/client": "7.10.1",
+    "@prisma/adapter-pg": "7.10.1",
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "prisma": "7.10.1",
+    "typescript": "5.9.3",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/postcss": "4.3.3",
+    "tsx": "4.23.15",
+    "dotenv": "16.6.1",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/pg": "8.23.1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm run doctor:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.production)",
+      "Edit(./.env)",
+      "Bash(cat .env:*)",
+      "Bash(type .env:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(npx prisma db push --force-reset:*)",
+      "Bash(npx prisma db push --accept-data-loss:*)",
+      "Bash(git push --force:*)"
+    ]
+  }
+}

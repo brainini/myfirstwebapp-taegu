@@ -1,0 +1,22 @@
+{
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "lib/generated": true,
+    "package-lock.json": true
+  },
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/lib/generated/**": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  },
+  "[csv]": {
+    "editor.wordWrap": "off"
+  }
+}
