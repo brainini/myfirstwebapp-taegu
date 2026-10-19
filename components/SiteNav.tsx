@@ -1,7 +1,10 @@
 import Link from "next/link";
 
 // 위쪽 메뉴. 쪽을 더하면 여기에 한 줄을 더한다(예: { href: "/buyers", label: "바이어" }).
-export const NAV_ITEMS: { href: string; label: string }[] = [{ href: "/", label: "홈" }];
+export const NAV_ITEMS: { href: string; label: string }[] = [
+  { href: "/", label: "홈" },
+  { href: "/buyers", label: "바이어" },
+];
 
 export default function SiteNav() {
   return (
