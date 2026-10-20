@@ -10,3 +10,35 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Buyer {
+  id             String   @id
+  name           String
+  countryCode    String
+  countryKo      String
+  region         String
+  industry       String
+  paymentMethod  String
+  termsDays      Int
+  openArUsd      Int
+  overdueUsd     Int
+  pctAr31p       Float?
+  oldestOpenDays Int
+  avgDaysLate12m Float?
+  pd30d          Float
+  grade          String
+  signals        String[]
+  reviews        Review[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  buyerId   String
+  buyer     Buyer    @relation(fields: [buyerId], references: [id])
+  status    String
+  memo      String
+  reviewer  String
+  createdAt DateTime @default(now())
+
+  @@index([buyerId])
+}
