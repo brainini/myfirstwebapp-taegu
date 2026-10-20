@@ -9,6 +9,8 @@ import { getBuyers, type Buyer } from "@/lib/buyers";
 import { byRegion, filterByGrade, gradeCounts, kpis, toGrade, topRisk } from "@/lib/metrics";
 import { int, pct, usd } from "@/lib/format";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = { title: "바이어" };
 
 const TOP_COLUMNS: Column[] = [
