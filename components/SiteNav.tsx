@@ -4,6 +4,8 @@ import Link from "next/link";
 export const NAV_ITEMS: { href: string; label: string }[] = [
   { href: "/", label: "홈" },
   { href: "/buyers", label: "바이어" },
+  { href: "/dunning", label: "독촉 승인" },
+  { href: "/audit", label: "감사 기록" },
 ];
 
 export default function SiteNav() {

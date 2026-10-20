@@ -29,6 +29,7 @@ model Buyer {
   grade          String
   signals        String[]
   reviews        Review[]
+  drafts         DunningDraft[]
 }
 
 model Review {
@@ -41,4 +42,34 @@ model Review {
   createdAt DateTime @default(now())
 
   @@index([buyerId])
+}
+
+model DunningDraft {
+  id         Int       @id @default(autoincrement())
+  buyerId    String
+  buyer      Buyer     @relation(fields: [buyerId], references: [id])
+  stage      String    // D+7 · D+15 · D+30
+  tone       String    // T1 · T2 · T3
+  overdueUsd Int
+  subject    String
+  body       String
+  summaryKo  String    // 승인자를 위한 한국어 한 줄
+  checks     Json      // 가드레일 G1–G7 결과 7개
+  status     String    @default("pending") // pending · approved · rejected · blocked
+  decidedBy  String?
+  decidedAt  DateTime?
+  reason     String?
+  createdAt  DateTime  @default(now())
+
+  @@index([buyerId])
+  @@index([status])
+}
+
+model AuditLog {
+  id     Int      @id @default(autoincrement())
+  at     DateTime @default(now())
+  actor  String   // 'AI(claude -p)' · 승인자 별명
+  action String   // 초안 작성 · 초안 막힘 · 승인 · 반려
+  target String   // 예: {바이어 번호} · 초안 #{번호}
+  detail String
 }

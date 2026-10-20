@@ -35,6 +35,14 @@ export function int(v: Num): string {
   return whole.format(Math.round(v));
 }
 
+const twoDigits = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+/** 환율: 1339.49 → "1,339.49" (소수 둘째 자리 · 단위는 쓰는 쪽에서 붙인다) */
+export function fx(v: Num): string {
+  if (!ok(v)) return EMPTY;
+  return twoDigits.format(v);
+}
+
 /** 한국 시각(Asia/Seoul): → "2026-10-19 15:03" · seconds=true면 "2026-10-19 15:03:07". 서버에서 부른다. */
 export function kst(date: Date | string | number, seconds = false): string {
   const d = date instanceof Date ? date : new Date(date);

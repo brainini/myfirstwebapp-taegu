@@ -1,11 +1,14 @@
 import Link from "next/link";
+import fxSaved from "@/data/fx_fallback.json";
 import DeployBadge from "@/components/DeployBadge";
+import FxTile from "@/components/FxTile";
 import KpiCard from "@/components/KpiCard";
 import Notice from "@/components/Notice";
 import PageHeader from "@/components/PageHeader";
 import { StatusBadge } from "@/components/ReviewForm";
 import { getBuyers } from "@/lib/buyers";
 import { int, kst, pct, usd } from "@/lib/format";
+import { kpis } from "@/lib/metrics";
 import { getRecentReviews } from "@/lib/reviews";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +22,10 @@ export default async function Home() {
   const arC = gradeC.reduce((sum, b) => sum + b.openArUsd, 0);
   const recent = await getRecentReviews(5);
 
+  // 환율 타일에 넘길 달러 합(lib/metrics.ts) · 9/30 기준 USD/KRW(저장본)
+  const k = kpis(buyers);
+  const baseKrw = fxSaved["2026-09-30"].find((r) => r.quote === "KRW")?.rate ?? Number.NaN;
+
   return (
     <div className="space-y-6">
       <PageHeader
@@ -26,6 +33,8 @@ export default async function Home() {
         asof="2026-09-30 · (가상) 합성 데이터"
         line="바이어 채권 · 등급을 휴대폰에서 보는 사내 웹앱입니다. 쪽은 실습에서 하나씩 더합니다."
       />
+
+      <FxTile cArUsd={k.gradeCArUsd} overdueUsd={k.overdueUsd} overdueCount={k.overdueCount} base={{ date: "2026-09-30", krw: baseKrw }} />
 
       <section aria-label="요약 숫자" className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <KpiCard label="바이어" value={`${int(total)}곳`} sub="Supabase DB에서 읽음" />
